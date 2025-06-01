@@ -79,46 +79,11 @@ export function DeviceRepairJourney() {
     <section id="repair" className="py-16 bg-zinc-800">
       <div className="container">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-2">Repair Journey</h2>
-          <p className="text-zinc-400 text-center mb-8">Select your device and issue to get started</p>
-
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex gap-2">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? "bg-orange-500" : "bg-zinc-700"}`}
-              >
-                1
-              </div>
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? "bg-orange-500" : "bg-zinc-700"}`}
-              >
-                2
-              </div>
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 3 ? "bg-orange-500" : "bg-zinc-700"}`}
-              >
-                3
-              </div>
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 4 ? "bg-orange-500" : "bg-zinc-700"}`}
-              >
-                4
-              </div>
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 5 ? "bg-orange-500" : "bg-zinc-700"}`}
-              >
-                5
-              </div>
-            </div>
-            {step > 1 && (
-              <Button variant="ghost" onClick={resetJourney}>
-                Start Over
-              </Button>
-            )}
-          </div>
 
           <Card className="bg-zinc-900 border-zinc-700">
             <CardContent className="p-6">
+              <h2 className="text-3xl font-bold text-center text-white mb-2">Repair Journey</h2>
+              <p className="text-zinc-400 text-center mb-8">Select your device and issue to get started</p>
               {step === 1 && (
                 <div>
                   {/* <h3 className="text-xl font-medium mb-4">Select Device Type</h3> */}
@@ -195,37 +160,127 @@ export function DeviceRepairJourney() {
               {step === 5 && (
                 <div className="text-center text-white">
                   <h3 className="text-xl font-medium mb-4">Repair Summary</h3>
-                  <div className="bg-zinc-800 p-6 rounded-lg mb-6">
-                    <p className="mb-2">
-                      <span className="text-white">Device Type:</span>{" "}
-                      {deviceTypes.find((d) => d.id === deviceType)?.name}
-                    </p>
-                    <p className="mb-2">
-                      <span className="text-white">Brand:</span> {phoneBrands.find((b) => b.id === brand)?.name}
-                    </p>
-                    <p className="mb-2">
-                      <span className="text-white">Model:</span> {appleModels.find((m) => m.id === model)?.name}
-                    </p>
-                    <p>
-                      <span className="text-white">Issue:</span> {issueTypes.find((i) => i.id === issue)?.name}
-                    </p>
+                  <div className="bg-zinc-800 p-6 rounded-lg mb-6 text-white">
+                    <div className="text-xl font-semibold mb-4">Repair Summary</div>
+
+                    <div className="flex flex-col md:flex-row gap-6">
+                      {/* Repair Summary Table */}
+                      <table className="table-auto border-collapse border border-zinc-600 w-full md:w-1/2 text-left">
+                        <tbody>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Device Type:</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                              {deviceTypes.find((d) => d.id === deviceType)?.name}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Brand:</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                              {phoneBrands.find((b) => b.id === brand)?.name}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Model:</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                              {appleModels.find((m) => m.id === model)?.name}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Issue:</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                              {issueTypes.find((i) => i.id === issue)?.name}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      {/* Customer Details Form */}
+                      <div className="w-full md:w-1/2">
+                        <div className="text-lg font-semibold mb-4">Customer Details</div>
+                        <form className="space-y-4">
+                          <div>
+                            <label className="block text-sm mb-1" htmlFor="name">Name</label>
+                            <input
+                              type="text"
+                              id="name"
+                              className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm mb-1" htmlFor="email">Email</label>
+                            <input
+                              type="email"
+                              id="email"
+                              className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm mb-1" htmlFor="phone">Phone Number</label>
+                            <input
+                              type="tel"
+                              id="phone"
+                              className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
+
                   <p className="text-white mb-6">
-                    Thank you for providing your device details. Please contact us or visit our shop to get your device
+                    Thank you for providing your device details. Please book now to get your device
                     repaired.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="bg-orange-500 hover:bg-orange-600">Contact Us Now</Button>
-                    <Button
+                  {/* <p>
+                    Alternatively you can save a draft repair and call us for further information: +447506595309.
+                  </p> */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center mt-5">
+                    <Button className="bg-orange-500 hover:bg-orange-600">Book Now</Button>
+                    {/* <Button className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">Contact Us Now</Button> */}
+
+                    {/* <Button
                       variant="outline"
                       className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
                       onClick={resetJourney}
                     >
                       Start New Repair
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               )}
+              <div className="flex gap-2 mt-10">
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? "bg-orange-500" : "bg-zinc-700"}`}
+                >
+                  1
+                </div>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? "bg-orange-500" : "bg-zinc-700"}`}
+                >
+                  2
+                </div>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 3 ? "bg-orange-500" : "bg-zinc-700"}`}
+                >
+                  3
+                </div>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 4 ? "bg-orange-500" : "bg-zinc-700"}`}
+                >
+                  4
+                </div>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 5 ? "bg-orange-500" : "bg-zinc-700"}`}
+                >
+                  5
+                </div>
+                {step > 1 && (
+                  <Button variant="ghost" onClick={resetJourney} className="ml-auto bg-orange-500 text-white px-4 py-2 rounded">
+                    Restart Journey
+                  </Button>
+                )}
+              </div>
+
             </CardContent>
           </Card>
         </div>
