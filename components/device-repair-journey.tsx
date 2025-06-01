@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Smartphone, Laptop, Tablet, Watch } from "lucide-react"
 
-type DeviceType = "phone" | "laptop" | "tablet" | "watch" | null
+type DeviceType = "phone" | "laptop" | "tablet" | null
 type DeviceBrand = "apple" | "samsung" | "google" | "other" | null
 type DeviceModel = "iphone15" | "iphone14" | "iphone13" | "iphone12" | "iphoneSE" | "other" | null
 type DeviceIssue = "screen" | "battery" | "charging" | "water" | "other" | null
@@ -14,7 +14,6 @@ const deviceTypes = [
   { id: "phone", name: "Smartphone", icon: Smartphone },
   { id: "laptop", name: "Laptop", icon: Laptop },
   { id: "tablet", name: "Tablet", icon: Tablet },
-  { id: "watch", name: "Smartwatch", icon: Watch },
 ]
 
 const phoneBrands = [
@@ -122,8 +121,8 @@ export function DeviceRepairJourney() {
             <CardContent className="p-6">
               {step === 1 && (
                 <div>
-                  <h3 className="text-xl font-medium mb-4">Select Device Type</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {/* <h3 className="text-xl font-medium mb-4">Select Device Type</h3> */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {deviceTypes.map((device) => (
                       <Button
                         key={device.id}
@@ -141,7 +140,7 @@ export function DeviceRepairJourney() {
 
               {step === 2 && (
                 <div>
-                  <h3 className="text-xl font-medium mb-4">Select Brand</h3>
+                  {/* <h3 className="text-xl font-medium mb-4">Select Brand</h3> */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {phoneBrands.map((item) => (
                       <Button
@@ -159,7 +158,7 @@ export function DeviceRepairJourney() {
 
               {step === 3 && brand === "apple" && (
                 <div>
-                  <h3 className="text-xl font-medium mb-4">Select Model</h3>
+                  {/* <h3 className="text-xl font-medium mb-4">Select Model</h3> */}
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {appleModels.map((item) => (
                       <Button
@@ -177,7 +176,7 @@ export function DeviceRepairJourney() {
 
               {step === 4 && (
                 <div>
-                  <h3 className="text-xl font-medium mb-4">Select Issue</h3>
+                  {/* <h3 className="text-xl font-medium mb-4">Select Issue</h3> */}
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {issueTypes.map((item) => (
                       <Button
@@ -194,24 +193,24 @@ export function DeviceRepairJourney() {
               )}
 
               {step === 5 && (
-                <div className="text-center">
+                <div className="text-center text-white">
                   <h3 className="text-xl font-medium mb-4">Repair Summary</h3>
                   <div className="bg-zinc-800 p-6 rounded-lg mb-6">
                     <p className="mb-2">
-                      <span className="text-zinc-400">Device Type:</span>{" "}
+                      <span className="text-white">Device Type:</span>{" "}
                       {deviceTypes.find((d) => d.id === deviceType)?.name}
                     </p>
                     <p className="mb-2">
-                      <span className="text-zinc-400">Brand:</span> {phoneBrands.find((b) => b.id === brand)?.name}
+                      <span className="text-white">Brand:</span> {phoneBrands.find((b) => b.id === brand)?.name}
                     </p>
                     <p className="mb-2">
-                      <span className="text-zinc-400">Model:</span> {appleModels.find((m) => m.id === model)?.name}
+                      <span className="text-white">Model:</span> {appleModels.find((m) => m.id === model)?.name}
                     </p>
                     <p>
-                      <span className="text-zinc-400">Issue:</span> {issueTypes.find((i) => i.id === issue)?.name}
+                      <span className="text-white">Issue:</span> {issueTypes.find((i) => i.id === issue)?.name}
                     </p>
                   </div>
-                  <p className="text-zinc-400 mb-6">
+                  <p className="text-white mb-6">
                     Thank you for providing your device details. Please contact us or visit our shop to get your device
                     repaired.
                   </p>

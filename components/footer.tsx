@@ -35,11 +35,11 @@ export function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="#services" className="text-zinc-400 hover:text-orange-500">
                   Services
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="#repair" className="text-zinc-400 hover:text-orange-500">
                   Repair Journey

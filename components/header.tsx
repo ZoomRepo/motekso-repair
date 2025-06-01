@@ -10,7 +10,7 @@ export function Header() {
           <span className="text-xl font-bold text-orange-500">MOTEKSO</span>
           <span className="text-lg font-medium">Device Repair</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        {/* <nav className="hidden md:flex items-center gap-6">
           <Link href="#services" className="text-sm font-medium hover:text-orange-500 transition-colors">
             Services
           </Link>
@@ -20,7 +20,7 @@ export function Header() {
           <Link href="#contact" className="text-sm font-medium hover:text-orange-500 transition-colors">
             Contact
           </Link>
-        </nav>
+        </nav> */}
         <Button
           variant="outline"
           className="hidden md:flex gap-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
