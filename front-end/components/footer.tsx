@@ -9,7 +9,7 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold text-orange-500 mb-4">MOTEKSO</h3>
             <p className="text-zinc-400 mb-4">
-              Professional device repair services in Cornwall. Fast, reliable, and affordable.
+              Professional device repair services in Cornwall. </br>Fast, reliable, and affordable.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="text-zinc-400 hover:text-orange-500">
