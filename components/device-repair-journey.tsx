@@ -159,13 +159,17 @@ export function DeviceRepairJourney() {
 
               {step === 5 && (
                 <div className="text-center text-white">
-                  <h3 className="text-xl font-medium mb-4">Repair Summary</h3>
                   <div className="bg-zinc-800 p-6 rounded-lg mb-6 text-white">
-                    <div className="text-xl font-semibold mb-4">Repair Summary</div>
+                    {/* <div className="text-xl font-semibold mb-4">Repair Summary</div> */}
 
                     <div className="flex flex-col md:flex-row gap-6">
                       {/* Repair Summary Table */}
                       <table className="table-auto border-collapse border border-zinc-600 w-full md:w-1/2 text-left">
+                      <thead>
+                        <tr>
+                          <th className="border border-zinc-600 px-4 py-2 bg-zinc-700 font-semibold" colspan="2">Repair Summary</th>
+                        </tr>
+                      </thead>
                         <tbody>
                           <tr>
                             <td className="border border-zinc-600 px-4 py-2 font-semibold">Device Type:</td>
@@ -189,6 +193,24 @@ export function DeviceRepairJourney() {
                             <td className="border border-zinc-600 px-4 py-2 font-semibold">Issue:</td>
                             <td className="border border-zinc-600 px-4 py-2">
                               {issueTypes.find((i) => i.id === issue)?.name}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Price:</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                              £79.00
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Parts In-stock:</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                             Yes
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="border border-zinc-600 px-4 py-2 font-semibold">Repair Time::</td>
+                            <td className="border border-zinc-600 px-4 py-2">
+                              1 Hour
                             </td>
                           </tr>
                         </tbody>
@@ -221,12 +243,12 @@ export function DeviceRepairJourney() {
                               id="phone"
                               className="w-full px-3 py-2 bg-zinc-700 border border-zinc-600 rounded text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                             />
+                            
                           </div>
                         </form>
                       </div>
                     </div>
                   </div>
-
                   <p className="text-white mb-6">
                     Thank you for providing your device details. Please book now to get your device
                     repaired.
@@ -246,6 +268,7 @@ export function DeviceRepairJourney() {
                       Start New Repair
                     </Button> */}
                   </div>
+ 
                 </div>
               )}
               <div className="flex gap-2 mt-10">
@@ -280,7 +303,6 @@ export function DeviceRepairJourney() {
                   </Button>
                 )}
               </div>
-
             </CardContent>
           </Card>
         </div>

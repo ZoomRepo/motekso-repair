@@ -8,7 +8,8 @@ export function HeroSection() {
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Elite <span className="text-orange-500">Device Repair</span> Services
+            {/* Elite */}
+            <span className="text-orange-500">Device Repair</span> Services 
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 mb-8">
             Fast, reliable repairs for all your devices. From smartphones to laptops, we've got you covered.
